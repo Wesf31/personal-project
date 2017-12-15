@@ -20,11 +20,17 @@
 .MainPic{
     width: 70%;
     height: 80%;
+    background: red;
 }
 .Container-2{
     width: 100%;
     height: 30%;
     background: pink;
+}
+
+.SmallImageDisplay{
+    /* will be six of these */
+
 }
 
 .FileUpload{
@@ -40,11 +46,3 @@
     border: 1px solid red;
 }
 
-/* .flexcontainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
-    background-color: grey;
-
-} */

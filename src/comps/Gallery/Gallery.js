@@ -215,8 +215,18 @@ export default class Gallery extends React.Component {
 
     render() {
         return (
+        <div className='Wrapper'>
+            
+        </div>  
+            
+            
+            
+            
+            
+            
+            
+            
             <form className='gallery'>
-             
                 <div>
                     {this.state.uploadedFileCloudinayrUrl === '' ? 
                     <div className="main">
