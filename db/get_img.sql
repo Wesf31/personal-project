@@ -1,1 +1,1 @@
-SELECT  imgurl from img order by imgid DESC LIMIT 1
+SELECT  imgurl, imgurl2, imgurl3, imgurl4, imgurl5, imgurl6, imgurl7 from img order by imgid DESC LIMIT 1

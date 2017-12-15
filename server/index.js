@@ -21,6 +21,7 @@ app.use(session({
 }))
 
 massive(process.env.DB_CONNECTION).then( db => {app.set('db', db)})
+app.use(express.static(__dirname + '/../build'))
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -49,8 +50,8 @@ passport.use( new Auth0Strategy({
 
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/appointment',
-    failureRedirect: 'http://localhost:3000/#/'
+    successRedirect: process.env.AUTH_APPOINTMENT_REDIRECT,
+    failureRedirect: process.env.AUTH_LANDING_REDIRECT
 }))
 
 passport.serializeUser(function( ID, done ){
@@ -75,7 +76,7 @@ app.get('/auth/me', function( req, res, next ){
 
 app.get('/auth/logout', function(req, res, next ){
     req.logout()
-    res.redirect('http://localhost:3000/#/')
+    res.redirect(process.env.AUTH_LANDING_REDIRECT)
 })
 
 app.post('/api/appointment', appointment_controller.create)
