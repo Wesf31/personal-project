@@ -6,9 +6,9 @@ export default class NavBar extends Component{
         return (
             <div id='centeredmenu'>
                 <ul>
-                    <li><a>Photo Gallery </a></li>
-                    <li><a>About </a></li>
-                    <li><a>Appointment </a></li>
+                    <li><a style={{fontFamily: 'Hammersmith One'}}>Photo Gallery </a></li>
+                    <li><a style={{fontFamily: 'Hammersmith One'}}>About </a></li>
+                    <li><a style={{fontFamily: 'Hammersmith One'}}>Appointment </a></li>
                 </ul>
             </div>
         )

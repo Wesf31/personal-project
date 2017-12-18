@@ -212,7 +212,8 @@ export default class Gallery extends React.Component {
     }
     componentWillMount() {
         axios.get('/api/gallery')
-        .then(res => (this.setState({
+        .then(res => 
+            (this.setState({
             uploadedFileCloudinayrUrl:res.data[0].imgurl,
             uploadedFileCloudinayrUrl2:res.data[0].imgurl2,
             uploadedFileCloudinayrUrl3:res.data[0].imgurl3,
@@ -220,7 +221,8 @@ export default class Gallery extends React.Component {
             uploadedFileCloudinayrUrl5:res.data[0].imgurl5,
             uploadedFileCloudinayrUrl6:res.data[0].imgurl6,
             uploadedFileCloudinayrUrl7:res.data[0].imgurl7
-        })))}
+        }))
+)}
 
     render() {
             return (
@@ -241,8 +243,8 @@ export default class Gallery extends React.Component {
                         multiple={false}
                         accept="image/*"
                         onDrop={this.onImageDrop}>
-                    <img className='MainImageDisplay' src={this.state.uploadedFileCloudinayrUrl} />
-                    {/* <p>{this.state.uploadedFileCloudinayrUrl}</p> */}
+                    <img className='MainImageDisplay' style={{width: "100%", display: "block", }} src={this.state.uploadedFileCloudinayrUrl} />
+
                     </Dropzone>
                     }
                     <input type="submit" value="Submit" onClick={this.handleSubmit} />
@@ -265,7 +267,7 @@ export default class Gallery extends React.Component {
                         accept="image/*"
                         onDrop={this.onImageDrop2}>
                     <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl2} />
-                    {/* <p>{this.state.uploadedFileCloudinayrUrl}</p> */}
+
                     </Dropzone>
                     }
                     <input type="submit" value="Submit" onClick={this.handleSubmit} />
@@ -285,7 +287,7 @@ export default class Gallery extends React.Component {
                         accept="image/*"
                         onDrop={this.onImageDrop3}>
                     <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl3} />
-                    {/* <p>{this.state.uploadedFileCloudinayrUrl}</p> */}
+
                     </Dropzone>
                     }
                     <input type="submit" value="Submit" onClick={this.handleSubmit} />
@@ -304,7 +306,7 @@ export default class Gallery extends React.Component {
                         accept="image/*"
                         onDrop={this.onImageDrop4}>
                     <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl4} />
-                    {/* <p>{this.state.uploadedFileCloudinayrUrl}</p> */}
+
                     </Dropzone>
                     }
                     <input type="submit" value="Submit" onClick={this.handleSubmit} />
@@ -323,7 +325,7 @@ export default class Gallery extends React.Component {
                         accept="image/*"
                         onDrop={this.onImageDrop5}>
                     <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl5} />
-                    {/* <p>{this.state.uploadedFileCloudinayrUrl}</p> */}
+
                     </Dropzone>
                     }
                     <input type="submit" value="Submit" onClick={this.handleSubmit} />
@@ -342,7 +344,7 @@ export default class Gallery extends React.Component {
                         accept="image/*"
                         onDrop={this.onImageDrop6}>
                     <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl6} />
-                    {/* <p>{this.state.uploadedFileCloudinayrUrl}</p> */}
+
                     </Dropzone>
                     }
                     <input type="submit" value="Submit" onClick={this.handleSubmit} />
@@ -360,8 +362,7 @@ export default class Gallery extends React.Component {
                         multiple={false}
                         accept="image/*"
                         onDrop={this.onImageDrop7}>
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl7} />
-                    {/* <p>{this.state.uploadedFileCloudinayrUrl}</p> */}
+                    <img className='SmallImageDisplay' width='100%' src={this.state.uploadedFileCloudinayrUrl7} />
                     </Dropzone>
                     }
                     <input type="submit" value="Submit" onClick={this.handleSubmit} />

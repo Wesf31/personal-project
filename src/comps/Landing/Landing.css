@@ -1,7 +1,7 @@
 .landing{
     height: 100vh;
     width: 100%;
-    background-image: url(./background4.jpg); 
+    background-image: url(./realbackground.jpg); 
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
@@ -9,10 +9,44 @@
 
 #svgposition {
     position: relative;
-    left: 24.5vw;
-    top: 26vh;
-    width:75vw
+    left: 23vw;
+    top: 17vh;
+    width: 75vw;
+} 
+
+#headerposition{
+    position: relative;
+    left: 37vw;
+    top: 38vh;
+    width: 40vw;
+    font-size: 30px;
+    font-family: 'Hammersmith One';
+    color: gray;
+    
 }
+
+#textposition {
+    position: relative;
+    left: 37vw;
+    top: 40vh;
+    width: 39vw;
+    font-family: 'Hammersmith One';
+    font-weight: lighter;
+    color: gray;
+    
+}
+
+#socialposition{
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    left: 2vw;
+    top: 20vh;
+    width: 11vw;
+    font-family: 'Hammersmith One';
+
+}
+
 
 
 /* use media queries to make responsive*/ 
