@@ -1,0 +1,18 @@
+.appointmentWrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: grey;
+    align-content: center;
+    align-items: center;
+    
+
+}
+
+.appointmentForm{
+    background: white;
+    padding: 10px;
+    
+
+}

@@ -17,8 +17,9 @@ class App extends Component {
         <Route exact path="/" component= {Landing} />
         <Route path="/login" component={Login} />
         <Route path="/appointment" component={MatTextField} />
-        <Route path="/gallery" component={gallery2} />
+        <Route path="/gallery" component={Gallery} />
         <Route path="/info" component={Info} />
+        <Route path="/gallery2" component={gallery2} />
       </div>
     );
   }

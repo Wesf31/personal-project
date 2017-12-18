@@ -1,56 +1,100 @@
+body {
+    background: gray;
+}
 .Wrapper{
     display: flex;
     flex-direction: column;
     max-width: 100%;
 
+    
 }
 .Header{
     width: 100%;
-    height:25px;
-    background: greenyellow;
-    
+    padding-top: 5px;
+    height:10vh;
+    display: flex;
 }
 .Container-3{
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    align-content: flex-end;
     width: 100%;
-    height: 60%;
-    background: yellow;
-    padding-bottom: 2%;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: center
 
 }
-.MainPic{
+.Column1{
     display: flex;
-    width: 70%;
-    height: 90%;
-    background: red;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: flex-start;
+    flex-grow: 1;
+    flex-basis: 0px;
+}
+
+.C1pic{
+    width: 100%;
+    display: block;
+}
+.Column2{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: flex-start;
+    flex-grow: 1;
+    flex-basis: 0px;
+}
+
+.C2pic{
+    width: 100%;
+    display: block;
+}
+.Column3{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: flex-start;
+    flex-grow: 1;
+    flex-basis: 0px;
+}
+.submit {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 1px 32px;
+    text-decoration: none;
+    margin: 5px 80px;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+
+}
+
+.C3pic{
+    width: 100%;
+    display: block;
 }
 
 .Container-4{
     width: 100%;
-    height: 40%;
-    background: pink;
     display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
+	flex-direction: row;
 	/* justify-content: space-around; */
-	align-items: center;
+    align-content: center;
+    justify-content: flex-start;
 
 
 }
 .SmallPic{
-    width: 15vw;
-    height: 15vw;
+    width: 100%;
     padding: 15px;
     box-sizing: border-box;
+    border-radius: 3px
 
 }
 
 .SmallImageDisplay{
     max-width: 100%;
+    border-radius: 3px
 }
 
 

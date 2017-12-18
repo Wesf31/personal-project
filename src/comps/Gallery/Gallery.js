@@ -3,6 +3,7 @@ import Dropzone from 'react-dropzone'
 import request from 'superagent'
 import './Gallery.css'
 import axios from 'axios'
+import NavBar from './../NavBar/NavBar'
 
 const CLOUDINARY_UPLOAD_PRESET = 'k4zdtfen'
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dhowdfbmx/upload'
@@ -227,145 +228,142 @@ export default class Gallery extends React.Component {
     render() {
             return (
             <div className='Wrapper'>
-                <h1 className='Header'>
-                </h1>
-                <div className='Container-3'>
-                    {this.state.uploadedFileCloudinayrUrl === '' ? 
-                    
-                    <Dropzone className='MainPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop}>
-                        <div>Drop an image or click to select a file to upload.</div>
-                    </Dropzone>
-                :
-                    <Dropzone className='MainPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop}>
-                    <img className='MainImageDisplay' style={{width: "100%", display: "block", }} src={this.state.uploadedFileCloudinayrUrl} />
-
-                    </Dropzone>
-                    }
-                    <input type="submit" value="Submit" onClick={this.handleSubmit} />
+                <div className='Header'>
+                <NavBar />
                 </div>
-        
-           
+                <input className='submit' type='submit' value='Save' />
+
                 <div className='Container-4'>
-                    
-                    {this.state.uploadedFileCloudinayrUrl2 === '' ? 
-                    
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop2}>
-                        <div>Drop an image or click to select a file to upload.</div>
-                    </Dropzone>
-                :
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop2}>
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl2} />
+                    <div className='Column1'>
+                        {this.state.uploadedFileCloudinayrUrl2 === '' ? 
+                        
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop2}>
+                            <div>Drop an image or click to select a file to upload.</div>
+                        </Dropzone>
+                    :
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop2}>
+                        <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl2} />
 
-                    </Dropzone>
-                    }
-                    <input type="submit" value="Submit" onClick={this.handleSubmit} />
+                        </Dropzone>
+                        }
                     
                     
-                    {this.state.uploadedFileCloudinayrUrl3 === '' ? 
-                    
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop3}>
-                        <div>Drop an image or click to select a file to upload.</div>
-                    </Dropzone>
-                :
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop3}>
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl3} />
+                        {this.state.uploadedFileCloudinayrUrl3 === '' ? 
+                        
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop3}>
+                            <div>Drop an image or click to select a file to upload.</div>
+                        </Dropzone>
+                    :
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop3}>
+                        <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl3} />
 
-                    </Dropzone>
-                    }
-                    <input type="submit" value="Submit" onClick={this.handleSubmit} />
+                        </Dropzone>
+                        }
+                    </div>
                     
-                    {this.state.uploadedFileCloudinayrUrl4 === '' ? 
-                    
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop4}>
-                        <div>Drop an image or click to select a file to upload.</div>
-                    </Dropzone>
-                :
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop4}>
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl4} />
+                    <div className='Column2'>
+                        {this.state.uploadedFileCloudinayrUrl4 === '' ? 
+                        
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop4}>
+                            <div>Drop an image or click to select a file to upload.</div>
+                        </Dropzone>
+                    :
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop4}>
+                        <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl4} />
 
-                    </Dropzone>
-                    }
-                    <input type="submit" value="Submit" onClick={this.handleSubmit} />
-                    
-                    {this.state.uploadedFileCloudinayrUrl5 === '' ? 
-                    
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop5}>
-                        <div>Drop an image or click to select a file to upload.</div>
-                    </Dropzone>
-                :
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop5}>
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl5} />
+                        </Dropzone>
+                        }
+                        
+                        {this.state.uploadedFileCloudinayrUrl5 === '' ? 
+                        
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop5}>
+                            <div>Drop an image or click to select a file to upload.</div>
+                        </Dropzone>
+                    :
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop5}>
+                        <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl5} />
 
-                    </Dropzone>
-                    }
-                    <input type="submit" value="Submit" onClick={this.handleSubmit} />
-                    
-                    {this.state.uploadedFileCloudinayrUrl6 === '' ? 
-                    
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop6}>
-                        <div>Drop an image or click to select a file to upload.</div>
-                    </Dropzone>
-                :
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop6}>
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl6} />
+                        </Dropzone>
+                        }
+                        {this.state.uploadedFileCloudinayrUrl === null ? 
+                                            
+                        <Dropzone
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop}>
+                            <div>Drop an image or click to select a file to upload.</div>
+                        </Dropzone>
+                    :
+                        <Dropzone className='MainPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop}>
+                            <img className='SmallImageDisplay' style={{width: "100%", display: "block", }} src={this.state.uploadedFileCloudinayrUrl} />
+                        </Dropzone>
+                        }
+                     </div>
+                     
+                     <div className='Column3'>   
+                        {this.state.uploadedFileCloudinayrUrl6 === '' ? 
+                        
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop6}>
+                            <div>Drop an image or click to select a file to upload.</div>
+                        </Dropzone>
+                    :
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop6}>
+                        <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl6} />
 
-                    </Dropzone>
-                    }
-                    <input type="submit" value="Submit" onClick={this.handleSubmit} />
-                    
-                    {this.state.uploadedFileCloudinayrUrl7 === '' ? 
-                    
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop7}>
-                        <div>Drop an image or click to select a file to upload.</div>
-                    </Dropzone>
-                :
-                    <Dropzone className='SmallPic'
-                        multiple={false}
-                        accept="image/*"
-                        onDrop={this.onImageDrop7}>
-                    <img className='SmallImageDisplay' width='100%' src={this.state.uploadedFileCloudinayrUrl7} />
-                    </Dropzone>
-                    }
-                    <input type="submit" value="Submit" onClick={this.handleSubmit} />
+                        </Dropzone>
+                        }
+                        
+                        {this.state.uploadedFileCloudinayrUrl7 === '' ? 
+                        
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop7}>
+                            <div>Drop an image or click to select a file to upload.</div>
+                        </Dropzone>
+                    :
+                        <Dropzone className='SmallPic'
+                            multiple={false}
+                            accept="image/*"
+                            onDrop={this.onImageDrop7}>
+                        <img className='SmallImageDisplay' width='100%' src={this.state.uploadedFileCloudinayrUrl7} />
+                        </Dropzone>
+                        }
+
+                    </div>
                 </div>
             </div>   
         )

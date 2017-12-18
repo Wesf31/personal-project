@@ -35,7 +35,7 @@ export default class Landing extends Component {
                 </div>
                 <div id='socialposition'>
                     <RaisedButton
-                        href="https://www.facebook.com/wesley.fukui"
+                        href="https://www.instagram.com/?hl=en#registered"
                         label="Instagram"
                         labelPosition="before"
                         style={styles.button}
@@ -43,7 +43,7 @@ export default class Landing extends Component {
                         >
                         </RaisedButton>
                         <RaisedButton
-                        href="https://www.facebook.com/wesley.fukui"
+                        href="https://www.instagram"
                         label="FaceBook"
                         labelPosition="before"
                         primary={true}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { getUser } from './../../ducks/users'
 import axios from 'axios'
+import'./Appointment.css'
 
 class Appointment extends Component {
     constructor(props) {
@@ -68,34 +69,34 @@ class Appointment extends Component {
     }
     
     render() {
-        const appointmentJSX = (
+        
             this.props.user ?
-            <form>
-                <div>
-                 <h1>Schedule Appointment</h1><hr />
-                 <h4>Customer Info:</h4>
-                 <label>Name: {this.props.user.username}</label>
-                 <label>Email: {this.props.user.useremail}</label>
-                 <label>Phone: </label> 
-                 <input type="text" value={this.state.value} onChange={this.handlePhoneChange} />
-                 <label>Desired Date: </label>
-                 <input type="date" onChange={this.handleChange} />
-                 <label>Desired Time: </label>
-                 <input type="text" onChange={this.handleTimeChange} />
-                 <label>Comments or Questions: </label>
-                 <input type="text" value={this.state.value} onChange={this.handleCommentChange} />
-                 <input type="submit" value="Submit" onClick={this.handleSubmit} />
-                 <input type="button" value="button" onClick={this.handleClick} />
-                
-
-                </div>
-            </form>
+            <div className='appointmentWrapper'>
+                <form>
+                    <div style = {{display:'flex'}}>
+                        <h1>Schedule Appointment</h1><hr />
+                        <h4>Customer Info:</h4>
+                        <label>Name: {this.props.user.username}</label>
+                        <label>Email: {this.props.user.useremail}</label>
+                        <label>Phone: </label> 
+                        <input type="text" value={this.state.value} onChange={this.handlePhoneChange} />
+                        <label>Desired Date: </label>
+                        <input type="date" onChange={this.handleChange} />
+                        <label>Desired Time: </label>
+                        <input type="text" onChange={this.handleTimeChange} />
+                        <label>Comments or Questions: </label>
+                        <input type="text" value={this.state.value} onChange={this.handleCommentChange} />
+                        <input type="submit" value="Submit" onClick={this.handleSubmit} />
+                        <input type="button" value="button" onClick={this.handleClick} />
+                    </div>
+                </form>
+            </div>
             :
             <div>
                 no working
             </div>
             
-        )
+        
         
         return (
             <div>

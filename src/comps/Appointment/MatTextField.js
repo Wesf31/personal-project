@@ -6,6 +6,9 @@ import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import DatePicker from 'material-ui/DatePicker'
 import TimePicker from 'material-ui/TimePicker'
+import './Appointment.css'
+import NavBar from './../NavBar/NavBar'
+
 
 
 class MatTextField extends Component {
@@ -31,7 +34,7 @@ class MatTextField extends Component {
     }
     handleChangeTimePicker = (event, time) => {
         this.setState({time: time});
-        // may have to run over string and split it up
+
     }
     handleSubmit(event) {
         event.preventDefault()
@@ -53,57 +56,55 @@ class MatTextField extends Component {
     } 
     render(){
         const appointmentJSX = (
-            this.props.user ?
-            <form>
-                <TextField
+            <div className='appointmentWrapper'>
+                <NavBar />
+
+                <div className='appointmentForm' >
+                    <TextField
                         floatingLabelText="Your Name"
                         value={this.state.username}
-                />
-                <br/>
-                <TextField 
-                    floatingLabelText="Your Email"
-                    value={this.state.useremail}
-                />
-                <br/>
-                <TextField 
-                    floatingLabelText="Please enter your Phone Number"
-                    hintText="Phone Number"
-                    value={this.state.phone}
-                    onChange={(e)=>this.setState({phone: e.target.value})}
-                />
-                <br/>
-                <DatePicker 
-                    hintText="Desired Appointment Date" 
-                    value={this.state.desiredDate}
-                    onChange={this.handleChange}
-                />
-                <br/>
-                <TimePicker
-                    format="ampm"
-                    hintText="Desired Appointment Time"
-                    value={this.state.time}
-                    onChange={this.handleChangeTimePicker}
-                />
-                <br/>
-                <TextField 
-                    floatingLabelText="Comments or Questions"
-                    hintText="Comments or Questions"
-                    value={this.state.comment}
-                    onChange={(e)=>this.setState({comment: e.target.value})}
-                />
-                <br />
-                <RaisedButton 
-                    label="Submit Appointment"
-                    secondary={true}
-                    onClick={this.handleSubmit}
-                    /> 
-            </form>
-            :
-            <div>
-                no working
+                    />
+                    <br/>
+                    <TextField 
+                        floatingLabelText="Your Email"
+                        value={this.state.useremail}
+                    />
+                    <br/>
+                    <TextField 
+                        floatingLabelText="Please enter your Phone Number"
+                        hintText="Phone Number"
+                        value={this.state.phone}
+                        onChange={(e)=>this.setState({phone: e.target.value})}
+                    />
+                    <br/>
+                    <DatePicker
+                        hintText="Desired Appointment Date" 
+                        value={this.state.desiredDate}
+                        onChange={this.handleChange}
+                    />
+                    <br/>
+                    <TimePicker
+                        format="ampm"
+                        hintText="Desired Appointment Time"
+                        value={this.state.time}
+                        onChange={this.handleChangeTimePicker}
+                    />
+                    <br style={{}}/>
+                    <TextField 
+                        floatingLabelText="Comments or Questions"
+                        hintText="Comments or Questions"
+                        value={this.state.comment}
+                        onChange={(e)=>this.setState({comment: e.target.value})}
+                    />
+                    <br/>
+                    <RaisedButton 
+                        label="Submit Appointment"
+                        secondary={true}
+                        onClick={this.handleSubmit}
+                        /> 
+                </div>
             </div>
         )
-
        return(
             <div>
                { appointmentJSX }
