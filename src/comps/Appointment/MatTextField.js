@@ -8,6 +8,9 @@ import DatePicker from 'material-ui/DatePicker'
 import TimePicker from 'material-ui/TimePicker'
 import './Appointment.css'
 import NavBar from './../NavBar/NavBar'
+import Dialog from 'material-ui/Dialog'
+import FlatButton from 'material-ui/FlatButton'
+
 
 
 
@@ -21,11 +24,13 @@ class MatTextField extends Component {
             desiredDate : null,
             time: null,
             useremail:'',
-            username: ''
+            username: '',
+            open: false
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleChangeTimePicker = this.handleChangeTimePicker.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleToggle = this.handleToggle.bind(this)
     }
 
     handleChange(e, date){
@@ -33,8 +38,14 @@ class MatTextField extends Component {
         this.setState({desiredDate: date})
     }
     handleChangeTimePicker = (event, time) => {
-        this.setState({time: time});
-
+        this.setState({
+            time: time
+        });
+    }
+    handleToggle = () => {
+        this.setState({
+            open: !this.state.open
+        })
     }
     handleSubmit(event) {
         event.preventDefault()
@@ -46,6 +57,8 @@ class MatTextField extends Component {
         } = this.state
         axios.post('/api/appointment', {phone, time, comment, desiredDate} )
         axios.put('/api/appointment/:id', {phone})
+        // .then ( this.props.history.push('/'))
+        
     }
     componentDidMount () {
         this.props.getUser()
@@ -55,6 +68,18 @@ class MatTextField extends Component {
         this.setState({username:nextProps.user.username, useremail:nextProps.user.useremail})
     } 
     render(){
+        const actions = [
+            <FlatButton
+              label="Cancel"
+              primary={true}
+              onClick={this.handleSubmit}
+            />,
+            <FlatButton
+              label="Continue"
+              secondary={true}
+              onClick={this.handleToggle}
+            />,
+          ]
         const appointmentJSX = (
             <div className='appointmentWrapper'>
                 <NavBar />
@@ -102,6 +127,14 @@ class MatTextField extends Component {
                         secondary={true}
                         onClick={this.handleSubmit}
                         /> 
+                    <Dialog
+                        title="Success!!"
+                        actions={actions}
+                        open={this.state.open} 
+                    >
+                        Your request has been sent to the photographer, they will get back to you soon!
+                    </Dialog>
+
                 </div>
             </div>
         )

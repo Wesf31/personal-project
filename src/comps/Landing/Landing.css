@@ -10,16 +10,16 @@
 #svgposition {
     position: relative;
     left: 23vw;
-    top: 17vh;
+    top: 20vh;
     width: 75vw;
 } 
 
 #headerposition{
     position: relative;
     left: 37vw;
-    top: 38vh;
+    top: 50vh;
     width: 40vw;
-    font-size: 30px;
+    font-size: 50px;
     font-family: 'Hammersmith One';
     color: gray;
     
@@ -28,12 +28,11 @@
 #textposition {
     position: relative;
     left: 37vw;
-    top: 40vh;
+    top: 55vh;
     width: 39vw;
     font-family: 'Hammersmith One';
     font-weight: lighter;
     color: gray;
-    
 }
 
 #socialposition{
@@ -41,7 +40,7 @@
     flex-direction: column;
     position: relative;
     left: 2vw;
-    top: 20vh;
+    top: 35vh;
     width: 11vw;
     font-family: 'Hammersmith One';
 }

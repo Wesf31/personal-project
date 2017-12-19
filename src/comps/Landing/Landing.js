@@ -23,7 +23,7 @@ export default class Landing extends Component {
                             <stop offset="100%" stopColor="rgb(20, 20, 20)" stopOpacity="100"/>
                         </linearGradient>
                     </defs>
-                    <text x='0' y="80" fill='url(#grad1)' fontSize='85px' opacity= '.4' filter= 'alpha(opacity=0)' letterSpacing='8px' style={{fontFamily: 'Hammersmith One'}} >WESLEY FUKUI</text>
+                    <text x='0' y="100" fill='url(#grad1)' fontSize='150px' opacity= '.4' filter= 'alpha(opacity=0)' letterSpacing='8px' style={{fontFamily: 'Hammersmith One'}} >WESLEY FUKUI</text>
                 </svg>
                 <div>
                     <p id='headerposition'>

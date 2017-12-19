@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import './info.css'
 import axios from 'axios'
+import NavBar from './../NavBar/NavBar'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { getUser } from './../../ducks/users'
 
-export default class Info extends Component{
+class Info extends Component{
 
     constructor(props){
         super(props)
@@ -18,6 +22,7 @@ export default class Info extends Component{
     }
 
     handleSubmit(e){
+        console.log(this.props.user)
         e.preventDefault()
         let {
             InfoPageHeader,
@@ -41,17 +46,21 @@ export default class Info extends Component{
             SmallBox2Text:res.data[0].smallbox2text
         })))
     }
+    componentDidMount() {
+        this.props.getUser()
+    }
 
     render() {
         const infoJSX = (
-        <div className= 'Wrapper'>
-        <h1 className= 'NavBar'>
-        </h1>
+        this.props.user.useremail === 'wes.fukui@gmail.com' ?
+        <div className= 'Wrapper'>        
+        <div className= 'NavBar'>
+            <NavBar />
+        </div>
             <div className= 'Container-1'>
                 <div className= 'InfoPage'> 
                     <div className= 'InfoPicture'>
-                     
-                    </div>                    
+                    </div>                 
                     <div className= 'InfoPageTextBody'>
                             <textarea className= 'InfoPageHeader' 
                             value={this.state.InfoPageHeader} onChange={(e)=>this.setState({InfoPageHeader: e.target.value})}>
@@ -84,6 +93,44 @@ export default class Info extends Component{
                 </div>
             </div>
         </div>
+        :
+        <div className= 'Wrapper'>        
+        <div className= 'NavBar'>
+            <NavBar />
+        </div>
+            <div className= 'Container-1'>
+                <div className= 'InfoPage'> 
+                    <div className= 'InfoPicture'>
+                    </div>                 
+                    <div className= 'InfoPageTextBody'>
+                            <p className= 'InfoPageHeader'>
+                            {this.state.InfoPageHeader} 
+                            </p>
+                            <p className= 'InfoPageTextMain'>
+                            {this.state.InfoPageTextBody} 
+                            </p>
+                    </div>
+                </div>
+            </div>
+            <div className= 'Container-2'>
+                <div className= 'SmallBox1'>
+                    <p className='SmallBox1Header'>
+                    {this.state.SmallBox1Header} 
+                    </p>
+                    <p className='SmallBox1Text'>
+                    {this.state.SmallBox1Text} 
+                    </p>
+                </div>
+                <div className= 'SmallBox2'>
+                    <p className='SmallBox2Header'>
+                    {this.state.SmallBox2Header}
+                    </p>
+                    <p className='SmallBox2Text'>
+                    {this.state.SmallBox2Text} 
+                    </p>
+                </div>
+            </div>
+        </div>
         )
         return (
             <div>
@@ -92,3 +139,9 @@ export default class Info extends Component{
         )
     }
 }
+function mapStateToProps( state ) {
+    return {
+        user: state.userData
+    }
+}
+export default connect(mapStateToProps, { getUser })(Info) 
