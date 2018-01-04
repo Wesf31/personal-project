@@ -1,48 +1,43 @@
 .landing{
-    height: 100vh;
     width: 100%;
-    background-image: url(./realbackground.jpg); 
+    background-image: url(./bg.png); 
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
+    height: 100vh
 }
-
-#svgposition {
-    position: relative;
-    left: 23vw;
-    top: 20vh;
-    width: 75vw;
-} 
-
-#headerposition{
-    position: relative;
-    left: 37vw;
-    top: 50vh;
-    width: 40vw;
-    font-size: 50px;
+.landingText{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: 90%;
+    justify-content: space-between;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 3%;
+    padding-bottom: 4%;
+}
+.headerposition{
+    font-size: 40px;
     font-family: 'Hammersmith One';
     color: gray;
-    
+    padding-bottom: 2%;
 }
+.social{
+    display:flex;
+    flex-direction: column;
+    font-family: 'Hammersmith One';
+    justify-content: flex-end;
+    padding-right: 6%;
 
-#textposition {
-    position: relative;
-    left: 37vw;
-    top: 55vh;
-    width: 39vw;
+}
+.textposition {
     font-family: 'Hammersmith One';
     font-weight: lighter;
     color: gray;
-}
-
-#socialposition{
-    display:flex;
-    flex-direction: column;
-    position: relative;
-    left: 2vw;
-    top: 35vh;
-    width: 11vw;
-    font-family: 'Hammersmith One';
 }
 
 

@@ -9,13 +9,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 ReactDOM.render(
 
     <Provider store={ store }>
-        <HashRouter>
-            <Switch>
-                <MuiThemeProvider>
-                    <App />
-                </MuiThemeProvider>
-            </Switch>
-        </HashRouter>
+        <MuiThemeProvider>
+            <App />
+        </MuiThemeProvider>
     </Provider>, 
 document.getElementById('root')
 );

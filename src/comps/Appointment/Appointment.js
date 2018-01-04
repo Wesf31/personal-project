@@ -1,115 +1,149 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getUser } from './../../ducks/users'
 import axios from 'axios'
-import'./Appointment.css'
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
+import DatePicker from 'material-ui/DatePicker'
+import TimePicker from 'material-ui/TimePicker'
+import './Appointment.css'
+import NavBar from './../NavBar/NavBar'
+import Dialog from 'material-ui/Dialog'
+import FlatButton from 'material-ui/FlatButton'
+
+
+
 
 class Appointment extends Component {
-    constructor(props) {
+
+    constructor(props){
         super(props)
         this.state = {
-            phone: 'works',    
-            comment: '',
-            date: null,
-            time: null
+            phone:'',
+            comment:'',
+            desiredDate : null,
+            time: null,
+            useremail:'',
+            username: '',
+            open: false
         }
-
-        this.handleTimeChange = this.handleTimeChange.bind(this)
-        this.handlePhoneChange = this.handlePhoneChange.bind(this)
-        this.handleCommentChange = this.handleCommentChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-        this.handleClick = this.handleClick.bind(this)
+        this.handleChangeTimePicker = this.handleChangeTimePicker.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleToggle = this.handleToggle.bind(this)
     }
 
-    handleCommentChange(event) {
+    handleChange(e, date){
+        this.setState({desiredDate: date})
+    }
+    handleChangeTimePicker = (event, time) => {
         this.setState({
-            comment: event.target.value
+            time: time
+        });
+    }
+    handleToggle = () => {
+        this.setState({
+            open: !this.state.open
         })
     }
-
-    handlePhoneChange(event) {
-        this.setState({
-            phone: event.target.value
-        })
-    }
-
-    handleTimeChange(event) {
-        this.setState({
-            time: event.target.value
-        })
-    }
-
-    handleChange(event) {
-        this.setState({
-            date: event.target.value
-        })
-    }
-
-    handleClick(event){
-        axios.get(`/api/appointment`)
-    }
-
     handleSubmit(event) {
         event.preventDefault()
         let {
             phone,
             time,
             comment, 
-            date
+            desiredDate
         } = this.state
-        axios.post('/api/appointment', {phone, time, comment, date} )
+        axios.post('/api/appointment', {phone, time, comment, desiredDate} )
         axios.put('/api/appointment/:id', {phone})
-        // .catch() if an error is thrown this do something with state to tell the user to fill it all out
-
+        .then ( this.props.history.push('/'))
+        
     }
-    
-    componentDidMount() {
+    componentDidMount () {
         this.props.getUser()
     }
-    
-    render() {
-        
-            this.props.user ?
+
+    componentWillReceiveProps (nextProps) {
+        this.setState({username:nextProps.user.username, useremail:nextProps.user.useremail})
+    } 
+    render(){
+        const actions = [
+            <FlatButton
+              label="Continue"
+              secondary={true}
+              onClick={this.handleSubmit}
+            />,
+          ]
+        const appointmentJSX = (
             <div className='appointmentWrapper'>
-                <form>
-                    <div style = {{display:'flex'}}>
-                        <h1>Schedule Appointment</h1><hr />
-                        <h4>Customer Info:</h4>
-                        <label>Name: {this.props.user.username}</label>
-                        <label>Email: {this.props.user.useremail}</label>
-                        <label>Phone: </label> 
-                        <input type="text" value={this.state.value} onChange={this.handlePhoneChange} />
-                        <label>Desired Date: </label>
-                        <input type="date" onChange={this.handleChange} />
-                        <label>Desired Time: </label>
-                        <input type="text" onChange={this.handleTimeChange} />
-                        <label>Comments or Questions: </label>
-                        <input type="text" value={this.state.value} onChange={this.handleCommentChange} />
-                        <input type="submit" value="Submit" onClick={this.handleSubmit} />
-                        <input type="button" value="button" onClick={this.handleClick} />
-                    </div>
-                </form>
+                <NavBar />
+
+                <div className='appointmentForm' >
+                    <TextField
+                        floatingLabelText="Your Name"
+                        value={this.state.username}
+                    />
+                    <br/>
+                    <TextField 
+                        floatingLabelText="Your Email"
+                        value={this.state.useremail}
+                    />
+                    <br/>
+                    <TextField 
+                        floatingLabelText="Please enter your Phone Number"
+                        hintText="Phone Number"
+                        value={this.state.phone}
+                        onChange={(e)=>this.setState({phone: e.target.value})}
+                    />
+                    <br/>
+                    <DatePicker
+                        hintText="Desired Appointment Date" 
+                        value={this.state.desiredDate}
+                        onChange={this.handleChange}
+                    />
+                    <br/>
+                    <TimePicker
+                        format="ampm"
+                        hintText="Desired Appointment Time"
+                        value={this.state.time}
+                        onChange={this.handleChangeTimePicker}
+                    />
+                    <br style={{}}/>
+                    <TextField 
+                        floatingLabelText="Comments or Questions"
+                        hintText="Comments or Questions"
+                        value={this.state.comment}
+                        onChange={(e)=>this.setState({comment: e.target.value})}
+                    />
+                    <br/>
+                    <RaisedButton 
+                        label="Submit Appointment"
+                        secondary={true}
+                        onClick={this.handleToggle}
+                        /> 
+                    <Dialog
+                        title="Success!!"
+                        actions={actions}
+                        open={this.state.open} 
+                    >
+                        Your request has been sent to the photographer, they will get back to you soon!
+                    </Dialog>
+
+                </div>
             </div>
-            :
+        )
+       return(
             <div>
-                no working
+               { appointmentJSX }
             </div>
-            
-        
-        
-        return (
-            <div>
-                { appointmentJSX }
-            </div>
-        ) 
+       )
     }
 }
 
- function mapStateToProps( state ) { 
+function mapStateToProps( state ) {
     return {
         user: state.userData
     }
 }
 
-export default connect(mapStateToProps, { getUser })(Appointment) 
+export default connect(mapStateToProps, { getUser })(Appointment)

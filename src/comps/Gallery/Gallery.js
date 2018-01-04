@@ -219,7 +219,7 @@ class Gallery extends Component{
             uploadedFileCloudinayrUrl7,
         } = this.state
         axios.post('/api/gallery', {uploadedFileCloudinayrUrl, uploadedFileCloudinayrUrl2, uploadedFileCloudinayrUrl3, uploadedFileCloudinayrUrl4, uploadedFileCloudinayrUrl5, uploadedFileCloudinayrUrl6, uploadedFileCloudinayrUrl7} )
-        .then (this.props.history.push('/gallery'))
+        .then (this.props.history.push('/'))
     }
     handleToggle = () => {
         this.setState({
@@ -244,7 +244,7 @@ componentDidMount() {
 }
 
     render() {
-    const actions = [
+    const modalActions = [
         <FlatButton
             label="Cancel"
             primary={true}
@@ -262,14 +262,14 @@ componentDidMount() {
           <div className='Header'>
           <NavBar />
           </div>
-          <input className='submit' type='submit' value='Save' onClick={this.handleToggle} />
-              <Dialog
-                  title="Just Checking"
-                  actions={actions}
-                  open={this.state.open} 
+          <button className='submit' type='button' onClick={this.handleToggle}> Save </button>
+            <Dialog
+                title="Just Checking"
+                actions={modalActions}
+                open={this.state.open} 
               >
               Are you sure you want to save these changes?
-          </Dialog>
+            </Dialog>
           <div className='Container-4'>
               <div className='Column1'>
                   {this.state.uploadedFileCloudinayrUrl2 === '' ? 
@@ -285,7 +285,7 @@ componentDidMount() {
                       multiple={false}
                       accept="image/*"
                       onDrop={this.onImageDrop2}>
-                  <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl2} />
+                  <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl2} />
 
                   </Dropzone>
                   }
@@ -304,7 +304,7 @@ componentDidMount() {
                       multiple={false}
                       accept="image/*"
                       onDrop={this.onImageDrop3}>
-                  <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl3} />
+                  <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl3} />
 
                   </Dropzone>
                   }
@@ -324,7 +324,7 @@ componentDidMount() {
                       multiple={false}
                       accept="image/*"
                       onDrop={this.onImageDrop4}>
-                  <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl4} />
+                  <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl4} />
 
                   </Dropzone>
                   }
@@ -342,7 +342,7 @@ componentDidMount() {
                       multiple={false}
                       accept="image/*"
                       onDrop={this.onImageDrop5}>
-                  <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl5} />
+                  <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl5} />
 
                   </Dropzone>
                   }
@@ -359,7 +359,7 @@ componentDidMount() {
                       multiple={false}
                       accept="image/*"
                       onDrop={this.onImageDrop}>
-                      <img className='SmallImageDisplay' style={{width: "100%", display: "block", }} src={this.state.uploadedFileCloudinayrUrl} />
+                      <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl} />
                   </Dropzone>
                   }
                </div>
@@ -378,7 +378,7 @@ componentDidMount() {
                       multiple={false}
                       accept="image/*"
                       onDrop={this.onImageDrop6}>
-                  <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl6} />
+                  <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl6} />
 
                   </Dropzone>
                   }
@@ -396,7 +396,7 @@ componentDidMount() {
                       multiple={false}
                       accept="image/*"
                       onDrop={this.onImageDrop7}>
-                  <img className='SmallImageDisplay' width='100%' src={this.state.uploadedFileCloudinayrUrl7} />
+                  <img className='SmallPic' width='100%' src={this.state.uploadedFileCloudinayrUrl7} />
                   </Dropzone>
                   }
 
@@ -405,25 +405,25 @@ componentDidMount() {
             </div>
             :
             <div className='Wrapper'>
-            <div className='Header'>
-            <NavBar />
+                <div className='Header'>
+                <NavBar />
+                </div>
+                <div className='Container-4'>
+                    <div className='Column1'>
+                        <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl2} />
+                        <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl3} />
+                    </div>
+                    <div className='Column2'>
+                        <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl4} />
+                        <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl5} />
+                        <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl} />
+                    </div>
+                    <div className='Column3'>
+                        <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl6} />
+                        <img className='SmallPic' src={this.state.uploadedFileCloudinayrUrl7} />
+                    </div>
+                </div>
             </div>
-            <div className='Container-4'>
-                <div className='Column1'>
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl2} />
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl3} />
-                </div>
-                <div className='Column2'>
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl4} />
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl5} />
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl} />
-                </div>
-                <div className='Column3'>
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl6} />
-                    <img className='SmallImageDisplay' src={this.state.uploadedFileCloudinayrUrl7} />
-                  </div>
-                </div>
-              </div>
     )
             return (
                 <div>
