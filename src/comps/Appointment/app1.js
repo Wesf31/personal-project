@@ -36,7 +36,13 @@ class App1 extends React.Component {
     });
   };
   handleClickSubmit = () => {
-    console.log(this.state.time)
+    this.setState({
+      open: false,
+      phone: '',
+      time: 'yyyy-MM-ddThh:mm',
+      email: '',
+      name: '',
+    });
   }
 
   handleSubmit(event) {
@@ -69,7 +75,6 @@ class App1 extends React.Component {
 
             <TextField
               margin="dense"
-              id="name"
               label="Name"
               type="name"
               value={this.state.name}
@@ -80,10 +85,10 @@ class App1 extends React.Component {
             <TextField
               margin="dense"
               id="name"
-              label="Email Address"
-              type="email"
-              value={this.state.email}
-              onChange={e => this.setState({ email: e.target.value })}
+              label="Comment"
+              type="name"
+              value={this.state.comment}
+              onChange={e => this.setState({ comment: e.target.value })}
               fullWidth
             />
 
@@ -100,15 +105,14 @@ class App1 extends React.Component {
             <TextField
               margin="dense"
               id="name"
-              label="Comment"
+              label="Email"
+              value={this.state.email}
+              onChange={e => this.setState({ email: e.target.value })}
               type="name"
-              value={this.state.comment}
-              onChange={e => this.setState({ comment: e.target.comment })}
               fullWidth
             />
 
             <TextField
-
               id="datetime-local"
               label="Desired time"
               type="datetime-local"
