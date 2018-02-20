@@ -28,21 +28,28 @@ function Landing(props) {
             className={classes.button}
             href="https://www.instagram.com/?hl=en#registered"
             label="Instagram"
-          />
+          >
+           Instagram
+          </Button>
           <Button
             variant="raised"
             color="primary"
             className={classes.button}
             href="https://www.instagram.com/?hl=en#registered"
             label="FaceBook"
-          />
+          >
+           FaceBook
+          </Button>
           <Button
             variant="raised"
             color="primary"
             className={classes.button}
             href="https://www.youtube.com"
             label="YouTube"
-          />
+          >
+          YouTube
+          </Button>
+
         </div>
       </div>
       <Info />
