@@ -10,9 +10,15 @@ class NavBar extends Component {
     const { classes } = this.props
     return (
       <div className={classes.container}>
-        <Button component={Link} to="/" label="Home" />
-        <Button href={process.env.REACT_APP_LOGIN} />
-        <Button component={Link} to="/gallery" label="Gallery" />
+        <Button component={Link} to="/" label="Home" >
+        Home
+        </Button>
+        <Button href={process.env.REACT_APP_LOGIN}>
+        Login
+        </Button>
+        <Button component={Link} to="/gallery" label="Gallery">
+        Gallery
+        </Button>
         <App1 />
       </div>
     )
